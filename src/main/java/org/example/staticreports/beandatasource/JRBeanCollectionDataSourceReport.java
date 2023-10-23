@@ -42,19 +42,21 @@ public class JRBeanCollectionDataSourceReport implements ReportGenerator {
             FileInputStream fileInputStream = new FileInputStream(HOLIDAYS_REPORT_BEAN_JRXML);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
 
+            LOGGER.info("Compiling report... ");
             JasperReport report = JasperCompileManager.compileReport(bufferedInputStream);
             LOGGER.info("Done compiling... ");
 
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(getDataSource(), false);
 
+            LOGGER.info("Filling report... ");
             JasperPrint print = JasperFillManager.fillReport(report, null, dataSource);
             LOGGER.info("Done filling the report... ");
 
+            LOGGER.info("Exporting report to pdf file... ");
             JasperExportManager.exportReportToPdfFile(print, GENERATED_REPORT_PATH + reportName);
             LOGGER.info("Done exporting to pdf file... ");
 
             JasperViewer.viewReport(print, false);
-
         } catch (JAXBException | JRException | FileNotFoundException e) {
             throw new RuntimeException(e);
         }
