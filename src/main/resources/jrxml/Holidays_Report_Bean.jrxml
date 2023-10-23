@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Holidays_Report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7b066629-f62a-49be-9388-66567a416bd2">
+	<field name="country" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="date" class="java.util.Date"/>
+	<title>
+		<band height="66" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="66" uuid="64f75355-9fbb-4a78-980c-7731c3333d49">
+					<property name="com.jaspersoft.studio.element.name" value="Title"/>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="278" height="66" forecolor="#003873" uuid="e7a1abef-b90b-421d-af49-391c6ba2fd3a">
+						<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+						<property name="com.jaspersoft.studio.unit.spacingBefore" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Top">
+						<font size="18" isBold="true" isItalic="false"/>
+						<paragraph leftIndent="45" spacingBefore="20"/>
+					</textElement>
+					<text><![CDATA[HOLYDAYS]]></text>
+				</staticText>
+				<image>
+					<reportElement x="278" y="0" width="277" height="66" uuid="5df0f4dc-9542-4f47-9587-62c335424764"/>
+					<imageExpression><![CDATA["src/main/resources/images/cedacri.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="63" backcolor="rgb(89, 116, 145)" uuid="5d68fd73-8b3d-470d-9e20-cc37f28021df"/>
+			</rectangle>
+			<line>
+				<reportElement x="185" y="0" width="1" height="63" uuid="d7a14a69-60f7-4359-b1df-3e84f000124e"/>
+			</line>
+			<line>
+				<reportElement x="370" y="0" width="1" height="63" uuid="46a1817f-97d0-49a5-ab14-bd90916b3a38"/>
+			</line>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="63" backcolor="rgba(0, 56, 115, 0.4117647)" uuid="0001afd8-6f56-4459-9077-24e87a51e994">
+					<property name="com.jaspersoft.studio.element.name" value="ColumnHeader"/>
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="0" y="0" width="185" height="63" backcolor="rgba(0, 56, 155, 0.34901962)" uuid="ed60e49c-bf92-403b-b789-07b5ae9c472f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Country]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="185" y="0" width="185" height="63" backcolor="rgba(0, 56, 155, 0.34901962)" uuid="ff1bc861-9817-4ebe-9760-e82498d5f07f"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="370" y="0" width="185" height="63" backcolor="rgba(0, 56, 155, 0.34901962)" uuid="75d0fe2e-17d8-455c-817a-88f8d76bfea9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="47" uuid="20ff91ab-bfdf-4faf-b3d6-ad9f9d11b287"/>
+			</rectangle>
+			<frame>
+				<reportElement x="0" y="0" width="555" height="45" uuid="fcaba6f7-97f5-4b6c-91d9-79eada70dc54">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+					<property name="com.jaspersoft.studio.element.name" value="Content"/>
+				</reportElement>
+				<textField>
+					<reportElement x="0" y="0" width="185" height="45" forecolor="#003873" uuid="d35d9ae2-521e-4970-813b-d6ba60e86714"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="185" y="0" width="185" height="45" forecolor="#003873" uuid="df3d17ba-a4ad-442e-b91f-c4090d2cd3a9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="370" y="0" width="185" height="45" forecolor="#003873" uuid="39b7445a-32d5-42d7-bb60-5256161b2629"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement x="185" y="0" width="1" height="48" uuid="26cee957-d55c-45fa-bf65-87e0c2a601f3"/>
+			</line>
+			<line>
+				<reportElement x="370" y="0" width="1" height="48" uuid="caf95d78-4ae1-4660-8abd-fae7895bc527"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="rgb(89, 116, 145)" uuid="feb50803-01df-47c2-9e25-fa8d30cb5289"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="rgb(89, 116, 145)" uuid="0fb785e0-4ac7-4f50-a5d7-72430e89f6ae"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e6b64cf0-f67e-4041-9f98-a95144b4a297"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
