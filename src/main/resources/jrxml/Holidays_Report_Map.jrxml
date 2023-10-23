@@ -27,7 +27,7 @@
 				</staticText>
 				<image>
 					<reportElement x="278" y="0" width="277" height="66" uuid="5df0f4dc-9542-4f47-9587-62c335424764"/>
-					<imageExpression><![CDATA["C:/Users/crme085/Pictures/Saved Pictures/pictures/cedacri.png"]]></imageExpression>
+					<imageExpression><![CDATA["src/main/resources/images/cedacri.png"]]></imageExpression>
 				</image>
 			</frame>
 		</band>

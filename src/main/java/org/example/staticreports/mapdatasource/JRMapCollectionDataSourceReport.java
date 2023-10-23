@@ -11,6 +11,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.staticreports.JRResultSetDataSourceReport;
+import org.example.staticreports.generator.ReportGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -31,16 +32,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JRMapCollectionDataSourceReport {
+import static org.example.utils.ReportUtils.DATE_FORMAT_STRING;
+import static org.example.utils.ReportUtils.HOLIDAYS_REPORT_MAP_JRXML;
+import static org.example.utils.ReportUtils.HOLIDAYS_XML;
+import static org.example.utils.ReportUtils.GENERATED_REPORT_PATH;
+
+public class JRMapCollectionDataSourceReport implements ReportGenerator {
 
     private static final Logger LOGGER = LogManager.getLogger(JRResultSetDataSourceReport.class);
 
-    public static final List<Map<String, ?>> HOLIDAYS_MAP = new ArrayList<>();
+    private static final List<Map<String, ?>> HOLIDAYS_MAP = new ArrayList<>();
 
+    private final String reportName;
 
-    public static void generateReport() {
+    public JRMapCollectionDataSourceReport(String reportName) {
+        this.reportName = reportName;
+    }
+
+    public void generateReport() {
         try {
-            FileInputStream fileInputStream = new FileInputStream("src/main/resources/Holidays_Report.jrxml");
+            FileInputStream fileInputStream = new FileInputStream(HOLIDAYS_REPORT_MAP_JRXML);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
 
             JasperReport report = JasperCompileManager.compileReport(bufferedInputStream);
@@ -53,7 +64,7 @@ public class JRMapCollectionDataSourceReport {
             JasperPrint print = JasperFillManager.fillReport(report, null, dataSource);
             LOGGER.info("Done filling the report... ");
 
-            JasperExportManager.exportReportToPdfFile(print, "src/main/resources/report.pdf");
+            JasperExportManager.exportReportToPdfFile(print, GENERATED_REPORT_PATH + reportName);
             LOGGER.info("Done exporting to pdf file... ");
 
             JasperViewer.viewReport(print, false);
@@ -63,7 +74,7 @@ public class JRMapCollectionDataSourceReport {
     }
 
     private static void generateDataSource() throws ParserConfigurationException, SAXException, IOException, ParseException {
-        File file = new File("src/main/resources/Holidays.xml");
+        File file = new File(HOLIDAYS_XML);
 
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document document = documentBuilder.parse(file);
@@ -86,7 +97,7 @@ public class JRMapCollectionDataSourceReport {
                     String nodeName = current.getNodeName();
                     String content = current.getTextContent();
                     if (nodeName.equals("DATE")) {
-                        Date date = new SimpleDateFormat("dd/MM/yyyy").parse(content);
+                        Date date = new SimpleDateFormat(DATE_FORMAT_STRING).parse(content);
                         holydayMap.put(nodeName, date);
                     } else {
                         holydayMap.put(nodeName, content);
