@@ -16,6 +16,8 @@
         <jaxb.version>2.3.1</jaxb.version>
         <postgres.version>42.6.0</postgres.version>
         <logger.version>2.21.0</logger.version>
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+        <junit.platform.version>1.10.0</junit.platform.version>
     </properties>
 
     <dependencies>
@@ -44,6 +46,29 @@
             <artifactId>log4j-api</artifactId>
             <version>${logger.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
