@@ -35,6 +35,9 @@ import static org.example.utils.ReportUtils.DATE_FORMAT_STRING;
 import static org.example.utils.ReportUtils.GENERATED_REPORT_PATH;
 import static org.example.utils.ReportUtils.HOLIDAYS_REPORT_JRXML;
 import static org.example.utils.ReportUtils.HOLIDAYS_XML;
+import static org.example.utils.ReportUtils.IT;
+import static org.example.utils.ReportUtils.ITALIA;
+import static org.example.utils.ReportUtils.MD;
 
 public class JRMapCollectionDataSourceReport implements ReportGenerator {
 
@@ -101,6 +104,9 @@ public class JRMapCollectionDataSourceReport implements ReportGenerator {
                     if (nodeName.equals("date")) {
                         Date date = new SimpleDateFormat(DATE_FORMAT_STRING).parse(content);
                         holydayMap.put(nodeName, date);
+                    } else if (nodeName.equals("country")) {
+                        content = content.equalsIgnoreCase(ITALIA) ? IT : MD;
+                        holydayMap.put(nodeName, content);
                     } else {
                         holydayMap.put(nodeName, content);
                     }

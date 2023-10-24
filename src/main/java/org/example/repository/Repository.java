@@ -21,6 +21,9 @@ import java.text.SimpleDateFormat;
 
 import static org.example.utils.ReportUtils.DATE_FORMAT_STRING;
 import static org.example.utils.ReportUtils.HOLIDAYS_XML;
+import static org.example.utils.ReportUtils.IT;
+import static org.example.utils.ReportUtils.ITALIA;
+import static org.example.utils.ReportUtils.MD;
 import static org.example.utils.ReportUtils.PASSWORD;
 import static org.example.utils.ReportUtils.URL;
 import static org.example.utils.ReportUtils.USER;
@@ -65,7 +68,7 @@ public class Repository {
                     String nodeName = current.getNodeName().toLowerCase();
                     String content = current.getTextContent();
                     if (nodeName.equalsIgnoreCase("country")) {
-                        preparedStatement.setString(1, content);
+                        preparedStatement.setString(1, content.equalsIgnoreCase(ITALIA)?IT:MD);
                     } else if (nodeName.equalsIgnoreCase("date")) {
                         Date date = new Date(new SimpleDateFormat(DATE_FORMAT_STRING).parse(content).getTime());
                         preparedStatement.setDate(2, date);

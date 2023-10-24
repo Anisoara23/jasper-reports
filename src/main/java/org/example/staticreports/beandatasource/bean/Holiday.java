@@ -9,6 +9,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.Date;
 
+import static org.example.utils.ReportUtils.IT;
+import static org.example.utils.ReportUtils.ITALIA;
+import static org.example.utils.ReportUtils.MD;
+
 @XmlRootElement(name = "holydays")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Holiday {
@@ -24,11 +28,11 @@ public class Holiday {
     private String name;
 
     public String getCountry() {
-        return country;
+        return country.equalsIgnoreCase(ITALIA)?IT:MD;
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        this.country = country.equalsIgnoreCase(ITALIA)?IT:MD;
     }
 
     public Date getDate() {

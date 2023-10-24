@@ -16,4 +16,9 @@ public class ReportUtils {
 
     public static final String PASSWORD = "1234567";
 
+    public static final String IT = "IT";
+
+    public static final String MD = "MD";
+
+    public static final String ITALIA = "Italia";
 }
