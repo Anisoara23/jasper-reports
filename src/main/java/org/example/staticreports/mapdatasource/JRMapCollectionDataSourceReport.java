@@ -32,9 +32,9 @@ import java.util.List;
 import java.util.Map;
 
 import static org.example.utils.ReportUtils.DATE_FORMAT_STRING;
-import static org.example.utils.ReportUtils.HOLIDAYS_REPORT_MAP_JRXML;
-import static org.example.utils.ReportUtils.HOLIDAYS_XML;
 import static org.example.utils.ReportUtils.GENERATED_REPORT_PATH;
+import static org.example.utils.ReportUtils.HOLIDAYS_REPORT_JRXML;
+import static org.example.utils.ReportUtils.HOLIDAYS_XML;
 
 public class JRMapCollectionDataSourceReport implements ReportGenerator {
 
@@ -50,7 +50,7 @@ public class JRMapCollectionDataSourceReport implements ReportGenerator {
 
     public void generateReport() {
         try {
-            FileInputStream fileInputStream = new FileInputStream(HOLIDAYS_REPORT_MAP_JRXML);
+            FileInputStream fileInputStream = new FileInputStream(HOLIDAYS_REPORT_JRXML);
             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
 
             LOGGER.info("Compiling report... ");
@@ -96,9 +96,9 @@ public class JRMapCollectionDataSourceReport implements ReportGenerator {
             for (int j = 0; j < holydayNodeLength; j++) {
                 current = holydayNode.item(j);
                 if (current.getNodeType() == Node.ELEMENT_NODE) {
-                    String nodeName = current.getNodeName();
+                    String nodeName = current.getNodeName().toLowerCase();
                     String content = current.getTextContent();
-                    if (nodeName.equals("DATE")) {
+                    if (nodeName.equals("date")) {
                         Date date = new SimpleDateFormat(DATE_FORMAT_STRING).parse(content);
                         holydayMap.put(nodeName, date);
                     } else {
