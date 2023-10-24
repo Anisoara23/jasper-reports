@@ -55,6 +55,7 @@ public class DynamicHolidaysReport implements ReportGenerator {
     public static final int TITLE_HEIGHT = 66;
     public static final int FOOTER_FONT_SIZE = 10;
     public static final int FOOTER_PADDING = 1;
+    public static final String DATE_PATTERN = "M/d/yy h:mm a";
 
     private final String reportName;
 
@@ -121,7 +122,8 @@ public class DynamicHolidaysReport implements ReportGenerator {
 
             TextColumnBuilder<Date> date = col.column("Date", "date", DataTypes.dateType())
                     .setTitleStyle(columnTitleStyle)
-                    .setStyle(columnStyle);
+                    .setStyle(columnStyle)
+                    .setPattern(DATE_PATTERN);
 
             TextColumnBuilder<String> name = col.column("Name", "name", DataTypes.stringType())
                     .setTitleStyle(columnTitleStyle)
