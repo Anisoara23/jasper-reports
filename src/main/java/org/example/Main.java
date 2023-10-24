@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.repository.Repository;
 import org.example.staticreports.beandatasource.JRBeanCollectionDataSourceReport;
-import org.example.staticreports.generator.ReportGenerator;
+import org.example.generator.ReportGenerator;
 import org.example.staticreports.mapdatasource.JRMapCollectionDataSourceReport;
 import org.example.staticreports.resultsetdatasource.JRResultSetDataSourceReport;
 

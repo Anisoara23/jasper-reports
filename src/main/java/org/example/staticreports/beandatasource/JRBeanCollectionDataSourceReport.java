@@ -12,7 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.example.staticreports.beandatasource.bean.Holiday;
 import org.example.staticreports.beandatasource.bean.Holidays;
-import org.example.staticreports.generator.ReportGenerator;
+import org.example.generator.ReportGenerator;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

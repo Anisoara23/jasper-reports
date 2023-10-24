@@ -1,4 +1,4 @@
-package org.example.staticreports.generator;
+package org.example.generator;
 
 public interface ReportGenerator {
 

@@ -10,7 +10,7 @@ import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.view.JasperViewer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.staticreports.generator.ReportGenerator;
+import org.example.generator.ReportGenerator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
