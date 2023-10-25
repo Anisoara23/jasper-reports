@@ -1,6 +1,6 @@
 package org.example.utils;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class ReportUtils {
 
@@ -23,6 +23,8 @@ public class ReportUtils {
     public static final String MD = "MD";
 
     public static final String ITALIA = "Italia";
+
+    public static final String MOLDAVIA = "Moldavia";
 
     public static final Color TITLE_COLOR = new Color(0, 56, 115);
 
@@ -55,4 +57,14 @@ public class ReportUtils {
     public static final int FOOTER_PADDING = 1;
 
     public static final String DATE_PATTERN = "M/d/yy h:mm a";
+
+    public static final String MONTH_NUMBER_PATTERN = "MM";
+
+    public static final String MONTH_NAME_PATTERN = "MMMM";
+
+    public static final int TITLE_PADDING = 20;
+
+    public static final int CHART_HEIGHT = 300;
+
+    public static final int COMPONENTS_VERTICAL_GAP = 20;
 }
