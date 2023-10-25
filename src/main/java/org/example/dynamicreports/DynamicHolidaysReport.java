@@ -15,7 +15,6 @@ import net.sf.dynamicreports.report.builder.style.StyleBuilder;
 import net.sf.dynamicreports.report.exception.DRException;
 import org.example.generator.ReportGenerator;
 
-import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.Connection;
@@ -33,29 +32,28 @@ import static net.sf.dynamicreports.report.constant.HorizontalTextAlignment.CENT
 import static net.sf.dynamicreports.report.constant.HorizontalTextAlignment.RIGHT;
 import static net.sf.dynamicreports.report.constant.LineStyle.SOLID;
 import static net.sf.dynamicreports.report.constant.VerticalTextAlignment.MIDDLE;
+import static org.example.utils.ReportUtils.BACKGROUND_COLOR;
+import static org.example.utils.ReportUtils.COLUMN_FONT_SIZE;
+import static org.example.utils.ReportUtils.COLUMN_HEIGHT;
+import static org.example.utils.ReportUtils.COLUMN_TITLE_FONT_SIZE;
+import static org.example.utils.ReportUtils.COLUMN_TITLE_HEIGHT;
+import static org.example.utils.ReportUtils.DATE_PATTERN;
+import static org.example.utils.ReportUtils.FOOTER_FONT_SIZE;
+import static org.example.utils.ReportUtils.FOOTER_PADDING;
 import static org.example.utils.ReportUtils.GENERATED_REPORT_PATH;
+import static org.example.utils.ReportUtils.IMAGE_HEIGHT;
+import static org.example.utils.ReportUtils.IMAGE_WIDTH;
 import static org.example.utils.ReportUtils.PASSWORD;
+import static org.example.utils.ReportUtils.TITLE_COLOR;
+import static org.example.utils.ReportUtils.TITLE_FONT_SIZE;
+import static org.example.utils.ReportUtils.TITLE_HEIGHT;
+import static org.example.utils.ReportUtils.TITLE_LEFT_PADDING;
+import static org.example.utils.ReportUtils.TITLE_TOP_PADDING;
+import static org.example.utils.ReportUtils.TITLE_WIDTH;
 import static org.example.utils.ReportUtils.URL;
 import static org.example.utils.ReportUtils.USER;
 
 public class DynamicHolidaysReport implements ReportGenerator {
-
-    public static final Color TITLE_COLOR = new Color(0, 56, 115);
-    public static final int COLUMN_TITLE_FONT_SIZE = 14;
-    public static final int COLUMN_FONT_SIZE = 12;
-    public static final int TITLE_FONT_SIZE = 18;
-    public static final Color BACKGROUND_COLOR = new Color(89, 116, 145);
-    public static final int COLUMN_HEIGHT = 45;
-    public static final int COLUMN_TITLE_HEIGHT = 64;
-    public static final int TITLE_LEFT_PADDING = 45;
-    public static final int TITLE_TOP_PADDING = 20;
-    public static final int IMAGE_WIDTH = 277;
-    public static final int IMAGE_HEIGHT = 66;
-    public static final int TITLE_WIDTH = 278;
-    public static final int TITLE_HEIGHT = 66;
-    public static final int FOOTER_FONT_SIZE = 10;
-    public static final int FOOTER_PADDING = 1;
-    public static final String DATE_PATTERN = "M/d/yy h:mm a";
 
     private final String reportName;
 
