@@ -147,7 +147,6 @@ public class DynamicHolidaysReport implements ReportGenerator {
                     .pageFooter(cmp.horizontalList(currentDate, page, pageXofY))
                     .setPageFooterStyle(footerStyle);
 
-            reportBuilder.show();
             reportBuilder.toPdf(new FileOutputStream(GENERATED_REPORT_PATH + reportName));
         } catch (SQLException | DRException | FileNotFoundException e) {
             throw new RuntimeException(e);
