@@ -2,19 +2,26 @@ package org.example;
 
 import org.example.dynamicreports.CrossTabAndChartReport;
 import org.example.dynamicreports.DynamicHolidaysReport;
-import org.example.repository.Repository;
-import org.example.staticreports.beandatasource.JRBeanCollectionDataSourceReport;
 import org.example.generator.ReportGenerator;
-import org.example.staticreports.mapdatasource.JRMapCollectionDataSourceReport;
-import org.example.staticreports.resultsetdatasource.JRResultSetDataSourceReport;
+import org.example.repository.Repository;
+import org.example.repository.RepositoryImpl;
+import org.example.staticreports.CommonJRDataSourceReportGenerator;
+import org.example.staticreports.beandatasource.JRBeanCollectionReportDataSource;
+import org.example.staticreports.mapdatasource.JRMapCollectionReportDataSource;
+import org.example.staticreports.resultsetdatasource.JRResultSetReportDataSource;
 
+import java.io.File;
 import java.util.Scanner;
+
+import static org.example.utils.ReportUtils.HOLIDAYS_XML;
 
 
 public class Main {
     public static void main(String[] args) {
-        Repository repository = new Repository();
-        repository.prepareDatabase();
+        File file = new File(HOLIDAYS_XML);
+
+        Repository repository = new RepositoryImpl();
+        repository.prepareDatabase(file);
 
         while (true) {
             System.out.println("\nGenerate static report from(type any other key to exit): ");
@@ -34,11 +41,20 @@ public class Main {
             }
 
             ReportGenerator reportGenerator = switch (reportType) {
-                case "1" -> new JRMapCollectionDataSourceReport("report1.pdf");
-                case "2" -> new JRBeanCollectionDataSourceReport("report2.pdf");
-                case "3" -> new JRResultSetDataSourceReport("report3.pdf");
-                case "4" -> new DynamicHolidaysReport("report4.pdf");
-                case "5" -> new CrossTabAndChartReport("report5.pdf");
+                case "1" -> new CommonJRDataSourceReportGenerator(
+                        "report1.pdf",
+                        JRMapCollectionReportDataSource.getDataSource(file)
+                );
+                case "2" -> new CommonJRDataSourceReportGenerator(
+                        "report2.pdf",
+                        JRBeanCollectionReportDataSource.getDataSource(file)
+                );
+                case "3" -> new CommonJRDataSourceReportGenerator(
+                        "report3.pdf",
+                        JRResultSetReportDataSource.getDataSource(repository)
+                );
+                case "4" -> new DynamicHolidaysReport("report4.pdf", repository.getResultSet());
+                case "5" -> new CrossTabAndChartReport("report5.pdf", repository.getResultSet());
                 default -> throw new IllegalStateException();
             };
 

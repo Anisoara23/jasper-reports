@@ -14,7 +14,7 @@ public class Holidays {
     @XmlElement(name = "holydays")
     private List<Holiday> holidays = new ArrayList<>();
 
-    public List<Holiday> getHolidays(){
+    public List<Holiday> getHolidays() {
         return holidays;
     }
 

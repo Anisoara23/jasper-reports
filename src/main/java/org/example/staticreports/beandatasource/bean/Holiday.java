@@ -21,18 +21,17 @@ public class Holiday {
     private String country;
 
     @XmlElement(name = "DATE")
-    @XmlJavaTypeAdapter(DateAdapter.class)
-    private Date date;
+    private @XmlJavaTypeAdapter(DateAdapter.class) Date date;
 
     @XmlElement(name = "NAME")
     private String name;
 
     public String getCountry() {
-        return country.equalsIgnoreCase(ITALIA)?IT:MD;
+        return country.equalsIgnoreCase(ITALIA) ? IT : MD;
     }
 
     public void setCountry(String country) {
-        this.country = country.equalsIgnoreCase(ITALIA)?IT:MD;
+        this.country = country.equalsIgnoreCase(ITALIA) ? IT : MD;
     }
 
     public Date getDate() {

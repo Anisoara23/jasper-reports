@@ -1,6 +1,6 @@
 package org.example.utils;
 
-import java.awt.Color;
+import java.awt.*;
 
 public class ReportUtils {
 
@@ -10,7 +10,7 @@ public class ReportUtils {
 
     public static final String GENERATED_REPORT_PATH = "src/main/resources/";
 
-    public static final String DATE_FORMAT_STRING = "dd/MM/yyyy";
+    public static final String DATE_FORMAT = "dd/MM/yyyy";
 
     public static final String URL = "jdbc:postgresql://localhost:5432/postgres";
 
@@ -67,4 +67,21 @@ public class ReportUtils {
     public static final int CHART_HEIGHT = 300;
 
     public static final int COMPONENTS_VERTICAL_GAP = 20;
+
+    public static final int CELL_WIDTH = 30;
+
+    public static final String CURRENT_DATE_PATTERN = "EEEEE dd MMMMM";
+
+    public static final String QUERY = "SELECT country, date, name FROM holidays";
+
+    public static final String CREATE_TABLE_QUERY = "DROP TABLE IF EXISTS holidays; " +
+            "CREATE TABLE public.holidays (" +
+            "country varchar NOT NULL, " +
+            "\"date\" date NOT NULL, " +
+            "\"name\" varchar NOT NULL" +
+            ");";
+
+    public static final String INSERT_QUERY = "INSERT INTO " +
+            "holidays(country, \"date\", \"name\")" +
+            "VALUES(?, ?, ?);";
 }
